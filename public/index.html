@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoodCanvas — Feel It. Paint It. Heal.</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body data-page="home">
+
+  <!-- ── CURSOR ── -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+
+  <!-- ── NAV ── -->
+  <nav id="navbar">
+    <div class="nav-logo" data-nav="home">
+      <span class="logo-symbol">◈</span>
+      <span class="logo-text">MoodCanvas</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#" class="nav-link active" data-nav="home">Home</a></li>
+      <li><a href="#" class="nav-link" data-nav="create">Create</a></li>
+      <li><a href="#" class="nav-link" data-nav="about">About</a></li>
+    </ul>
+    <button class="nav-cta" data-nav="create">Start Creating →</button>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       PAGE: HOME
+  ══════════════════════════════════════ -->
+  <section id="page-home" class="page active">
+
+    <!-- Hero -->
+    <div class="hero">
+      <canvas id="hero-canvas"></canvas>
+      <div class="hero-content">
+        <p class="hero-eyebrow">A therapeutic art experience</p>
+        <h1 class="hero-title">
+          <span class="line">Your mood,</span>
+          <span class="line italic">painted.</span>
+        </h1>
+        <p class="hero-sub">Choose a feeling. Watch it bloom into living art. Stay as long as you need.</p>
+        <button class="btn-primary pulse-btn" data-nav="create">Enter Your Mood</button>
+      </div>
+      <div class="hero-scroll-hint">scroll ↓</div>
+    </div>
+
+    <!-- Mood Preview Strip -->
+    <div class="mood-strip-section">
+      <p class="strip-label">Touch a mood to feel it</p>
+      <div class="mood-strip" id="home-mood-strip">
+        <div class="strip-card" data-mood="joy">
+          <div class="strip-orb"></div>
+          <span>Joy</span>
+        </div>
+        <div class="strip-card" data-mood="calm">
+          <div class="strip-orb"></div>
+          <span>Calm</span>
+        </div>
+        <div class="strip-card" data-mood="melancholy">
+          <div class="strip-orb"></div>
+          <span>Melancholy</span>
+        </div>
+        <div class="strip-card" data-mood="passion">
+          <div class="strip-orb"></div>
+          <span>Passion</span>
+        </div>
+        <div class="strip-card" data-mood="awe">
+          <div class="strip-orb"></div>
+          <span>Awe</span>
+        </div>
+        <div class="strip-card" data-mood="chaos">
+          <div class="strip-orb"></div>
+          <span>Chaos</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature Row -->
+    <div class="features-section">
+      <div class="feat-grid">
+        <div class="feat-card" data-index="0">
+          <div class="feat-icon">◉</div>
+          <h3>Feel it</h3>
+          <p>Pick a mood or type what you feel. No judgment. No wrong answers.</p>
+        </div>
+        <div class="feat-card" data-index="1">
+          <div class="feat-icon">⬡</div>
+          <h3>Watch it paint</h3>
+          <p>A living canvas responds to your emotion — unique every single time.</p>
+        </div>
+        <div class="feat-card" data-index="2">
+          <div class="feat-icon">✦</div>
+          <h3>Heal through art</h3>
+          <p>Research shows expressive art lowers cortisol. Let the colours do the work.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote Band -->
+    <div class="quote-band">
+      <blockquote id="home-quote">
+        "Art is not what you see, but what you make others feel."
+        <cite>— Edgar Degas</cite>
+      </blockquote>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="home-cta-section">
+      <h2>Ready to feel something?</h2>
+      <p>Takes 10 seconds. Lasts all day.</p>
+      <button class="btn-primary" data-nav="create">Open the Canvas →</button>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════
+       PAGE: CREATE
+  ══════════════════════════════════════ -->
+  <section id="page-create" class="page">
+
+    <canvas id="art-canvas"></canvas>
+
+    <div class="create-ui">
+
+      <!-- Step 1: Choose mood -->
+      <div class="create-panel" id="panel-mood">
+        <h2 class="panel-title">How are you feeling?</h2>
+        <p class="panel-sub">Pick one or write your own</p>
+
+        <div class="mood-grid" id="mood-grid">
+          <button class="mood-btn" data-mood="joy">
+            <span class="mood-emoji">☀️</span>
+            <span class="mood-label">Joy</span>
+            <span class="mood-desc">bright, warm, alive</span>
+          </button>
+          <button class="mood-btn" data-mood="calm">
+            <span class="mood-emoji">🌊</span>
+            <span class="mood-label">Calm</span>
+            <span class="mood-desc">still, breathing, blue</span>
+          </button>
+          <button class="mood-btn" data-mood="melancholy">
+            <span class="mood-emoji">🌧️</span>
+            <span class="mood-label">Melancholy</span>
+            <span class="mood-desc">soft, grey, tender</span>
+          </button>
+          <button class="mood-btn" data-mood="passion">
+            <span class="mood-emoji">🔥</span>
+            <span class="mood-label">Passion</span>
+            <span class="mood-desc">fierce, red, burning</span>
+          </button>
+          <button class="mood-btn" data-mood="awe">
+            <span class="mood-emoji">✨</span>
+            <span class="mood-label">Awe</span>
+            <span class="mood-desc">vast, golden, cosmic</span>
+          </button>
+          <button class="mood-btn" data-mood="chaos">
+            <span class="mood-emoji">🌪️</span>
+            <span class="mood-label">Chaos</span>
+            <span class="mood-desc">raw, electric, free</span>
+          </button>
+        </div>
+
+        <div class="mood-write">
+          <textarea id="mood-text" placeholder="…or just write what you feel. Anything."></textarea>
+          <button id="mood-text-submit" class="btn-ghost">Paint this feeling →</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Canvas Controls -->
+      <div class="create-controls hidden" id="panel-controls">
+        <div class="controls-top">
+          <div class="current-mood-tag" id="current-mood-tag"></div>
+          <button class="btn-ghost-sm" id="change-mood-btn">← Change mood</button>
+        </div>
+
+        <div class="controls-sliders">
+          <label>Intensity
+            <input type="range" id="intensity-slider" min="1" max="10" value="5" />
+          </label>
+          <label>Density
+            <input type="range" id="density-slider" min="1" max="10" value="5" />
+          </label>
+          <label>Speed
+            <input type="range" id="speed-slider" min="1" max="10" value="5" />
+          </label>
+        </div>
+
+        <div class="controls-actions">
+          <button class="btn-action" id="btn-regenerate">⟳ New variation</button>
+          <button class="btn-action" id="btn-download">↓ Save artwork</button>
+          <button class="btn-action" id="btn-fullscreen">⛶ Fullscreen</button>
+        </div>
+
+        <div class="therapy-note" id="therapy-note"></div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════
+       PAGE: ABOUT
+  ══════════════════════════════════════ -->
+  <section id="page-about" class="page">
+
+    <div class="about-wrap">
+
+      <div class="about-hero-text">
+        <span class="about-eyebrow">Our belief</span>
+        <h1 class="about-title">Art is the oldest<br /><em>therapy</em> we know.</h1>
+      </div>
+
+      <div class="about-body">
+        <div class="about-col">
+          <h3>Why MoodCanvas?</h3>
+          <p>Colour is a language older than words. When you can't explain what you feel, a palette can. MoodCanvas translates internal states into living, breathing visual worlds — not as decoration, but as reflection.</p>
+          <p>We built this for the 2 a.m. feeling. For the commute home where music isn't enough. For the Sunday afternoon that sits strange. Come here. Pick a colour. Breathe.</p>
+        </div>
+        <div class="about-col">
+          <h3>The science behind it</h3>
+          <p>Studies in art therapy show that expressive visual engagement activates the parasympathetic nervous system, lowering heart rate and cortisol levels within minutes. You don't need talent — just intention.</p>
+          <p>Every piece MoodCanvas generates is unique. No two moments of melancholy look the same. No two bursts of joy paint the same sky.</p>
+        </div>
+      </div>
+
+      <div class="about-moods-showcase" id="about-showcase">
+        <div class="showcase-item" data-mood="joy"><span>Joy</span></div>
+        <div class="showcase-item" data-mood="calm"><span>Calm</span></div>
+        <div class="showcase-item" data-mood="melancholy"><span>Melancholy</span></div>
+        <div class="showcase-item" data-mood="passion"><span>Passion</span></div>
+        <div class="showcase-item" data-mood="awe"><span>Awe</span></div>
+        <div class="showcase-item" data-mood="chaos"><span>Chaos</span></div>
+      </div>
+
+      <div class="about-team">
+        <h3>Built with love &amp; a little chaos</h3>
+        <p>MoodCanvas is a passion project from artists, developers, and people who needed it themselves. It is free. It always will be.</p>
+        <button class="btn-primary" data-nav="create">Try it now →</button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ── TRANSITION OVERLAY ── -->
+  <div id="transition-overlay">
+    <canvas id="transition-canvas"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
